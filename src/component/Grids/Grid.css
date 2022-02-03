@@ -1,0 +1,20 @@
+:root{
+    --spaces: 15px
+}
+.grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -15px; /* gutter size offset */
+    width: auto;
+  }
+  .grid_column {
+    padding-left: var(--spaces); /* gutter size */
+    background-clip: padding-box;
+  }
+  
+  /* Style your items */
+  .grid_column > div { /* change div to reference your elements you put in <Masonry> */
+    background: grey;
+    margin-bottom: var(--spaces);
+  }

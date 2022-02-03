@@ -1,9 +1,11 @@
+import { combineReducers } from "redux";
+import { gifsReducers } from "./reducers";
 
 
 
-export const gifsReducers = (state, action) => {
-    switch(action.type){
-         default:
-             return state
-    }
-}
+export const rootReducer = combineReducers({
+    data: gifsReducers
+})
+
+
+export type RootState = ReturnType<typeof rootReducer>
