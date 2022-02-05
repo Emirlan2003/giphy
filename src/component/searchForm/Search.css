@@ -1,0 +1,30 @@
+.fromInput{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.inp{
+    height: 33px;
+    width: 200px;
+    box-shadow:0 0 15px 4px rgba(255, 254, 254, 0.06);
+    border-radius: 18px;
+    border: none;
+}
+.btn{
+    margin-left: 5px;
+    border-radius: 18px;
+    height: 35px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background-color: yellow;
+}
+.btn:hover{
+    background-color: salmon;
+    color: white;
+    transition: 0.2s linear;
+}
