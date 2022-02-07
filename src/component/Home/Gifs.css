@@ -1,0 +1,10 @@
+.mainBlock{
+    width: 1440px;
+    display: flex;
+}
+.childBlock1{
+    width: 15%;
+}
+.childBlock2{
+    width: 85%;
+}

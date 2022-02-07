@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { searchRequest } from '../../store/action-creators/search';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { getSearchUrl } from '../../store/action-creators/search';
 import { getQuery } from '../../store/action-creators/urlParsers';
 import { Grid } from '../Grids/Grid';
 import SearchForm from '../searchForm/SearchForm';
 import './Search.css'
 
 const Search: React.FC = () => {
-    const [ items, setItems ] = useState<any>(undefined)
+    const { search } = useTypedSelector(state => state.data)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
 
-    const search = async (value: string) => {
-        const { data } = await searchRequest(value)
-        setItems(data)
+
+    
+    const searchFunc = async (value: string) => {
+        dispatch(getSearchUrl(value))
     }
 
     useEffect(() => {
         const query = getQuery(location, 'q')
         if(query){
-            search(query)
+            searchFunc(query)
         }
     }, [location.search])
 
@@ -39,7 +43,7 @@ const Search: React.FC = () => {
         </div>
         <div>
              {
-                 items ? <Grid gifs={items} /> : 'Loading'
+                 search ? <Grid gifs={search} /> : 'Loading'
              }
         </div>
         </>

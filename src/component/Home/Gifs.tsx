@@ -6,53 +6,59 @@ import { getGifs } from '../../store/action-creators/action-creators';
 import { Grid } from '../Grids/Grid';
 import { LoadMoreButton } from '../LoadMore/LoadMore';
 import SearchForm from '../searchForm/SearchForm';
+import './Gifs.css'
 
 const Gifs: React.FC = () => {
-    const [ offset, setOffset ] = useState(0)
-    const limit = 50
+    const [ offset, setOffset ] = useState<number>(50)
+    const [ items, setItems ] = useState<any>() 
+    const [ isLoading, setIsLoading ] = useState<boolean>(false)
+    const { gifs } = useTypedSelector(state => state.data)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const { gifs } = useTypedSelector(state => state.data)
+    const limit = 50
 
-    const fetchTrending = async () => {
-        const {gifs}: any = await getGifs(limit, offset)
-        dispatch( gifs ? [...gifs] : gifs)
+    console.log(gifs)
+
+    
+    const fetchTrending = () => {
+        dispatch(getGifs(limit, offset))
+        setItems(items ? [...items, ...gifs] : gifs)
     }
+    
 
-    useEffect(() => {
-        dispatch(getGifs())
-    }, [])
-
+    const loadmore = () => {
+        setOffset(limit + offset)
+        setIsLoading(true)
+    }
 
     useEffect(() => {
         fetchTrending()
     }, [offset])
    
 
+    
+    
+    
+    
     const search = (searchQuery: any) => {
         navigate(`/search?q=${searchQuery}`)
     }
-
-    const loadmore = () => {
-        setOffset(limit + offset)
-    }
-
-
-    
     
     
     return (
         <div>
-        <SearchForm onSubmit={search}/>
-        <div>
-            {
-                gifs ? 
-                <Grid gifs={gifs}/>
-                :
-                <h1>error</h1>
-            }
-        </div>
-        <LoadMoreButton onClick={loadmore}/>
+           <SearchForm onSubmit={search}/>
+             <div className='mainBlock'>
+                 <div className='childBlock1'>
+                        hello world
+                 </div>
+                 <div className='childBlock2'>
+                     {
+                         isLoading ? <Grid gifs={items} /> : <Grid gifs={gifs}/> 
+                     }
+                 </div>
+             </div>
+            <LoadMoreButton onClick={loadmore}/>
         </div>
     );
 };

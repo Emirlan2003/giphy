@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300&display=swap');
+.details{
+    display: flex;
+    margin-top: 150px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+}
+.mainImg{
+    height: 400px;
+    width: 550px;
+}
+.detailsChildBlock{
+    color: white;
+    margin-left: 30px;
+}
+.detailsChildBlock h3{
+    max-width: 400px;
+    margin-bottom: 50px;
+}
+.detailsChildBlock a{
+    margin-right: 30px;
+}
+.a1 button{
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
+}
+
+.a1 button:hover{
+    background: #2EE59D;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(-7px);
+}
+.contentBlock{
+    margin-top: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+.a2 img{
+    position: relative;
+    bottom: 46px;
+    left: 25px;
+    width: 30px;
+    height: 30px;
+}
+.a3 img{
+    position: relative;
+    bottom: 40px;
+    width: 40px;
+    height: 40px;
+    margin-left: 50px;
+}
+.backButton{
+    height: 40px;
+    width:30px;
+    border: 1px solid white;
+    background-color: yellowgreen;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}

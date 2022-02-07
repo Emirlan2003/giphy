@@ -6,7 +6,7 @@
     display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
     margin-left: -15px; /* gutter size offset */
-    width: auto;
+    width: 100%;
   }
   .grid_column {
     padding-left: var(--spaces); /* gutter size */

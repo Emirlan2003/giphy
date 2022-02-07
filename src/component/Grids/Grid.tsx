@@ -3,7 +3,7 @@ import { Card } from "../Card/Card";
 import './Grid.css'
 export const Grid = ({ gifs }: any) => {
     const breakpointColumnsObj = {
-        default: 6,
+        default: 5,
         1100: 3,
         700: 2,
         500: 1

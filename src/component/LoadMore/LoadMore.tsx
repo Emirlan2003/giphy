@@ -1,3 +1,5 @@
+import './LoadMore.css'
+
 export const LoadMoreButton= ({ onClick }: any) => {
-    return <button onClick={onClick}>LoadMore</button>
+    return <div className='loadBlock'><button onClick={onClick} className="load">LoadMore</button></div>
 }
