@@ -1,17 +1,31 @@
 import axios from "axios"
+import { KEY_API, REACT_APP_API } from "../../api/api"
 import { EActionTypes } from "../../types"
+
+
+
 
 export const getGifs = (limit = 50, offset = 0) => {
     return async function (dispatch: any){
-        const response = await axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=J1GGI3CPZWncqU07kwGqUjE1mqOptgyE&limit=${limit}&offset=${offset}&rating=g`)
+        const response = await axios.get(`${REACT_APP_API}/trending?api_key=${KEY_API}&limit=${limit}&offset=${offset}&rating=g`)
         dispatch({type: EActionTypes.GET_GIFS, payload: response.data.data})
     }
 }
 
 
-export const getDetails = (id: any) => {
-    return  async function (dispatch: any){
-        const response = await axios.get(`https://api.giphy.com/v1/gifs/${id}?api_key=J1GGI3CPZWncqU07kwGqUjE1mqOptgyE`)
-        dispatch({type: EActionTypes.GET_DETAILS, payload: response.data.data})
+
+
+export const getCategory = () => {
+    return async function(dispatch: any){
+        const response = await axios.get(`${REACT_APP_API}/categories?api_key=${KEY_API}`)
+        dispatch({type: EActionTypes.GET_CATEGORY, payload: response.data.data})
     }
 }
+
+
+
+export const getDetails = async (id: any) => {
+    const response = await axios.get(`${REACT_APP_API}/${id}?api_key=${KEY_API}`)
+    return response.data
+}
+

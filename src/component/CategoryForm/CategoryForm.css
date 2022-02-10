@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.categoryBlockText{
+    height: 30px;
+    background-color: rgb(44, 34, 48);
+    color: white;
+    margin-bottom: 5px;
+    margin-right: 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+.drots{
+    padding-right: 10px;
+    height: 7px;
+    width: 7px;
+    padding-top: 12px;
+}
+.categoryBlockText:hover{
+    background-color: rgb(100, 65, 109);
+    transition: 0.1s linear;
+}
+.categoryText{
+    padding-top: 6px;
+    padding-left: 10px;
+}
+.subCategory{
+    margin: 2px;
+    background-color: rgb(44, 34, 48);
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
+    color: white;
+    border-radius: 5px;
+    margin-left: -5px;
+}
+.subCategoryName{
+    cursor: pointer;
+    height: 30px;
+    padding-left: 15px;
+    padding-top: 9px;
+}
+.subCategoryName:hover{
+    background-color: rgb(100, 65, 109);
+    transition: 0.1s linear;
+}
+.subLength{
+    font-size: 8px;
+    position: relative;
+    top: -5px;
+}
+.drotsBlock{
+    display: flex;
+}
+.lengthBlock{
+    width: 14px;
+    height: 14px;
+    border-radius: 50px;
+    background-color: rgb(187, 28, 0);
+    margin-top: 10px;
+    margin-right: 5px;
+    padding-left: auto;
+    padding-right: auto;
+    text-align: center;
+}

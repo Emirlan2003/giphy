@@ -5,7 +5,8 @@ import { ActionTypes, EActionTypes, IInit } from "../../types"
 export const initState: IInit = {
      gifs: [],
      details: {},
-     search: []
+     search: [],
+     category: []
 }
 
 export const gifsReducers = (state = initState, action: ActionTypes): IInit => {
@@ -15,7 +16,9 @@ export const gifsReducers = (state = initState, action: ActionTypes): IInit => {
         case EActionTypes.GET_DETAILS:
             return { ...state, details: action.payload };
         case EActionTypes.GET_SEARCH:
-            return { ...state, search: action.payload}
+            return { ...state, search: action.payload };
+        case EActionTypes.GET_CATEGORY:
+            return { ...state, category: action.payload }
         default:
              return state
     }

@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { getGifs } from '../../store/action-creators/action-creators';
+import Category from '../Category/Category';
 import { Grid } from '../Grids/Grid';
 import { LoadMoreButton } from '../LoadMore/LoadMore';
-import SearchForm from '../searchForm/SearchForm';
 import './Gifs.css'
+
+
 
 const Gifs: React.FC = () => {
     const [ offset, setOffset ] = useState<number>(50)
@@ -17,7 +19,6 @@ const Gifs: React.FC = () => {
     const navigate = useNavigate()
     const limit = 50
 
-    console.log(gifs)
 
     
     const fetchTrending = () => {
@@ -36,10 +37,6 @@ const Gifs: React.FC = () => {
     }, [offset])
    
 
-    
-    
-    
-    
     const search = (searchQuery: any) => {
         navigate(`/search?q=${searchQuery}`)
     }
@@ -47,10 +44,9 @@ const Gifs: React.FC = () => {
     
     return (
         <div>
-           <SearchForm onSubmit={search}/>
              <div className='mainBlock'>
                  <div className='childBlock1'>
-                        hello world
+                     <Category onSubmit={search}/>
                  </div>
                  <div className='childBlock2'>
                      {

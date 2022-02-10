@@ -3,7 +3,7 @@ import { Card } from "../Card/Card";
 import './Grid.css'
 export const Grid = ({ gifs }: any) => {
     const breakpointColumnsObj = {
-        default: 5,
+        default: 4,
         1100: 3,
         700: 2,
         500: 1
@@ -17,7 +17,7 @@ export const Grid = ({ gifs }: any) => {
     {
         gifs.map(({id, url, images, title}: any) => (
             <div key={id}>
-                <Card id={id} url={url} previewUrl={images.preview_gif.url} title={title}/>
+                <Card id={id} url={url} previewUrl={images.preview_gif.url} title={title} />
             </div>
         ))
     }

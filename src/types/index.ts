@@ -1,14 +1,16 @@
 export enum EActionTypes {
     GET_GIFS = "GET_GIFS",
     GET_DETAILS = "GET_DETAILS",
-    GET_SEARCH = "GET_SEARCH"
+    GET_SEARCH = "GET_SEARCH",
+    GET_CATEGORY = "GET_CATEGORY"
 }
 
 
 export interface IInit {
     gifs: any[],
     details: any,
-    search: any[]
+    search: any[],
+    category: any[]
 }
 
 
@@ -27,7 +29,13 @@ interface ActionTypesGetSearch {
     payload: any[]
 }
 
+interface ActionTypesGetCategory {
+    type: EActionTypes.GET_CATEGORY,
+    payload: any[]
+}
+
 
 export type ActionTypes = ActionTypesGetGifs
                         | ActionTypesGetDetails
                         | ActionTypesGetSearch
+                        | ActionTypesGetCategory
