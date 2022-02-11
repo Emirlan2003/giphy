@@ -2,15 +2,47 @@ export enum EActionTypes {
     GET_GIFS = "GET_GIFS",
     GET_DETAILS = "GET_DETAILS",
     GET_SEARCH = "GET_SEARCH",
-    GET_CATEGORY = "GET_CATEGORY"
+    GET_CATEGORY = "GET_CATEGORY",
+    GET_RANDOM = "GET_RANDOM"
 }
 
 
+interface IGifs {
+    id: string | number,
+    url: string | number,
+    previewUrl: any,
+    title: string
+}
+
+interface IDetails {
+    id: string | number,
+    url: string | number,
+    title: string,
+    import_datetime: number
+}
+
+
+interface ISearch {
+    id: string | number,
+    url: string | number,
+    previewUrl: any,
+    title: string
+}
+
+
+interface ICategory {
+    id: string | number,
+    name: string,
+    subcategories: any[],
+    gif: any
+}
+
 export interface IInit {
-    gifs: any[],
-    details: any,
-    search: any[],
-    category: any[]
+    gifs: IGifs[],
+    details: IDetails[],
+    search: ISearch[],
+    category: ICategory[],
+    random: any
 }
 
 
@@ -34,8 +66,14 @@ interface ActionTypesGetCategory {
     payload: any[]
 }
 
+interface ActionTypedGetFavorites {
+    type: EActionTypes.GET_RANDOM,
+    payload: any
+}
+
 
 export type ActionTypes = ActionTypesGetGifs
                         | ActionTypesGetDetails
                         | ActionTypesGetSearch
                         | ActionTypesGetCategory
+                        | ActionTypedGetFavorites

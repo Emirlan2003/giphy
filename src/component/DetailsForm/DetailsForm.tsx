@@ -9,7 +9,6 @@ const img2 = require('../../assets/inst.png')
 const DetailsForm = ({ details }: any) => {
 
 
-    console.log(details)
 
     return (
         <div className='details' key={details.id}>
@@ -23,7 +22,6 @@ const DetailsForm = ({ details }: any) => {
                 <a href={details.url} target='blank' rel='noopener' className='a1'>
                        <button>Open on GIPHY</button>
                 </a>
-                
             </div>
         </div>
     );

@@ -7,6 +7,7 @@ import { getSearchUrl } from '../../store/action-creators/search';
 import { getQuery } from '../../store/action-creators/urlParsers';
 import Category from '../Category/Category';
 import { Grid } from '../Grids/Grid';
+import Header from '../Header/Header';
 import { LoadMoreButton } from '../LoadMore/LoadMore';
 import SearchForm from '../searchForm/SearchForm';
 import './Search.css'
@@ -41,6 +42,7 @@ const Search: React.FC = () => {
     
     return (
         <>
+          <Header />
             <div className='mainBlock'>
                  <div className='childBlock1'>
                      <Category onSubmit={newSearch}/>

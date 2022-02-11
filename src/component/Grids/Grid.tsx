@@ -1,4 +1,5 @@
 import Masonry from "react-masonry-css"
+import { IInit } from "../../types";
 import { Card } from "../Card/Card";
 import './Grid.css'
 export const Grid = ({ gifs }: any) => {

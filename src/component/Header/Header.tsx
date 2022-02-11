@@ -4,7 +4,7 @@ import GiphyIcons from '../GiphyIcons/GiphyIcons';
 import SearchForm from '../searchForm/SearchForm';
 import './Header.css'
 
-const Header: React.FC = () => {
+const Header = () => {
     const navigate = useNavigate()
 
     const search = (searchQuery: any) => {

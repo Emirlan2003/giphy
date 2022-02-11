@@ -5,6 +5,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { getGifs } from '../../store/action-creators/action-creators';
 import Category from '../Category/Category';
 import { Grid } from '../Grids/Grid';
+import Header from '../Header/Header';
 import { LoadMoreButton } from '../LoadMore/LoadMore';
 import './Gifs.css'
 
@@ -35,7 +36,7 @@ const Gifs: React.FC = () => {
     useEffect(() => {
         fetchTrending()
     }, [offset])
-   
+
 
     const search = (searchQuery: any) => {
         navigate(`/search?q=${searchQuery}`)
@@ -44,14 +45,15 @@ const Gifs: React.FC = () => {
     
     return (
         <div>
+           <Header />
              <div className='mainBlock'>
                  <div className='childBlock1'>
                      <Category onSubmit={search}/>
                  </div>
                  <div className='childBlock2'>
-                     {
-                         isLoading ? <Grid gifs={items} /> : <Grid gifs={gifs}/> 
-                     }
+                    {
+                        isLoading ? <Grid gifs={items} /> : <Grid gifs={gifs}/> 
+                    }
                  </div>
              </div>
             <LoadMoreButton onClick={loadmore}/>
