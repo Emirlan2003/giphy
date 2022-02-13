@@ -1,11 +1,14 @@
 import { combineReducers } from "redux";
-import { gifsReducers } from "./reducers";
+import { store } from "../store";
+import gifsReducer from "./reducers";
 
 
 
 export const rootReducer = combineReducers({
-    data: gifsReducers
+    gifsReducer
 })
 
 
 export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof store>
+export type AppDispatch = AppStore['dispatch']

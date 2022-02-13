@@ -6,7 +6,7 @@ import CategoryForm from '../CategoryForm/CategoryForm';
 
 
 const Category = ({ onSubmit }: any) => {
-    const { category } = useTypedSelector(state => state.data)
+    const { category } = useTypedSelector(state => state.gifsReducer)
     const dispatch = useDispatch()
 
 

@@ -2,18 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { getGifs } from '../../store/action-creators/action-creators';
-import { getSearchUrl } from '../../store/action-creators/search';
+import { getSearcUrl } from '../../store/action-creators/action-creators';
 import { getQuery } from '../../store/action-creators/urlParsers';
 import Category from '../Category/Category';
 import { Grid } from '../Grids/Grid';
 import Header from '../Header/Header';
-import { LoadMoreButton } from '../LoadMore/LoadMore';
-import SearchForm from '../searchForm/SearchForm';
 import './Search.css'
 
 const Search: React.FC = () => {
-    const { search } = useTypedSelector(state => state.data)
+    const { search } = useTypedSelector(state => state.gifsReducer)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
@@ -21,7 +18,7 @@ const Search: React.FC = () => {
 
     
     const searchFunc = async (value: string) => {
-        dispatch(getSearchUrl(value))
+        dispatch(getSearcUrl(value))
     }
 
 

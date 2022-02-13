@@ -1,28 +1,42 @@
-import { ActionTypes, EActionTypes, IInit } from "../../types"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { IGifs, IInit, ISearch, ICategory } from "../../types"
+import { getCategory } from "../action-creators/action-creators"
 
 
 
-export const initState: IInit = {
+export const initialState: IInit = {
      gifs: [],
      details: [],
      search: [],
      category: [],
-     random: {}
+     random: {},
+     error: ''
 }
 
-export const gifsReducers = (state = initState, action: ActionTypes): IInit => {
-    switch(action.type){
-        case EActionTypes.GET_GIFS:
-            return { ...state, gifs: action.payload };
-        case EActionTypes.GET_DETAILS:
-            return { ...state, details: action.payload };
-        case EActionTypes.GET_SEARCH:
-            return { ...state, search: action.payload };
-        case EActionTypes.GET_CATEGORY:
-            return { ...state, category: action.payload };
-        case EActionTypes.GET_RANDOM:
-            return { ...state, random: action.payload}
-        default:
-             return state
+
+export const gifsSlice = createSlice({
+    name: 'gifs',
+    initialState,
+    reducers: {
+        getGifsSuccess(state, action: PayloadAction<IGifs[]>){
+            state.gifs = action.payload
+        },
+        getGifsError(state, action: PayloadAction<string | null>){
+            state.error = action.payload
+        },
+        getSearch(state, action: PayloadAction<ISearch[]>){
+            state.search = action.payload
+        },
+        getSearchError(state, action: PayloadAction<string>){
+            state.error = action.payload
+        },
+        getCategorySuccess(state, action: PayloadAction<ICategory[]>){
+            state.category = action.payload
+        },
+        getCategoryError(state, action: PayloadAction<string>){
+            state.error = action.payload
+        }
     }
-}
+})
+
+export default gifsSlice.reducer

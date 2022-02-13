@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { getGifs } from '../../store/action-creators/action-creators';
 import Category from '../Category/Category';
@@ -15,8 +15,8 @@ const Gifs: React.FC = () => {
     const [ offset, setOffset ] = useState<number>(50)
     const [ items, setItems ] = useState<any>() 
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
-    const { gifs } = useTypedSelector(state => state.data)
-    const dispatch = useDispatch()
+    const { gifs } = useTypedSelector(state => state.gifsReducer)
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const limit = 50
 

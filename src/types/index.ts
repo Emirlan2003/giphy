@@ -7,14 +7,20 @@ export enum EActionTypes {
 }
 
 
-interface IGifs {
+export interface IGifs {
     id: string | number,
     url: string | number,
     previewUrl: any,
     title: string
 }
 
-interface IDetails {
+export interface IGifsAction {
+    loading: boolean,
+    error: string | null,
+    gifs: IGifs
+}
+
+export interface IDetails {
     id: string | number,
     url: string | number,
     title: string,
@@ -22,7 +28,7 @@ interface IDetails {
 }
 
 
-interface ISearch {
+export interface ISearch {
     id: string | number,
     url: string | number,
     previewUrl: any,
@@ -30,7 +36,7 @@ interface ISearch {
 }
 
 
-interface ICategory {
+export interface ICategory {
     id: string | number,
     name: string,
     subcategories: any[],
@@ -42,7 +48,8 @@ export interface IInit {
     details: IDetails[],
     search: ISearch[],
     category: ICategory[],
-    random: any
+    random: any,
+    error: string |  null
 }
 
 
