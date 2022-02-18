@@ -1,5 +1,4 @@
 import Masonry from "react-masonry-css"
-import { IInit } from "../../types";
 import { Card } from "../Card/Card";
 import './Grid.css'
 export const Grid = ({ gifs }: any) => {
@@ -18,7 +17,12 @@ export const Grid = ({ gifs }: any) => {
     {
         gifs.map(({id, url, images, title}: any) => (
             <div key={id}>
-                <Card id={id} url={url} previewUrl={images.preview_gif.url} title={title} />
+                <Card 
+                     id={id} 
+                     url={url} 
+                     previewUrl={images.preview_gif.url} 
+                     title={title} 
+                />
             </div>
         ))
     }

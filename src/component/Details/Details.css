@@ -83,3 +83,25 @@
     color: white;
     cursor: pointer;
 }
+.secondary{
+    color: red;
+    cursor: pointer;
+    position: absolute;
+    left: 680px;
+    top: 580px;
+}
+.primary{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 680px;
+    top: 580px;
+}
+.primary:hover{
+    color: red;
+    transition: 0.2s linear;
+}
+.secondary:hover{
+    color: white;
+    transition: 0.2s linear;
+}

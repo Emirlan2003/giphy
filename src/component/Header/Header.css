@@ -1,6 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300&display=swap');
 .header{
     display: flex;
 }
 .btnLogin{
     margin-top: 8px;
+}
+.favorite{
+    color: white;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-top: 3px;
+    padding-top: 12px;
+    padding-left: 15px;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    background-color: rgb(33, 32, 85);
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif
+}
+.favorite:hover{
+    background-color: rgb(46, 82, 150);
+    transition: 0.3s linear;
 }

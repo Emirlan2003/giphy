@@ -44,7 +44,10 @@ const CategoryForm = ({ item, clickHandler }: any) => {
                     <div className='subCategory'>
                         { sub ?
                             item.subcategories.map((sub: any) => (
-                                <div onClick={(e) => mainFunc(e, sub.name)} className='subCategoryName'>{sub.name.toUpperCase()}</div>
+                                <div 
+                                     onClick={(e) => mainFunc(e, sub.name)} 
+                                     className='subCategoryName'>{sub.name.toUpperCase()}
+                                </div>
                             ))
                               :
                           null

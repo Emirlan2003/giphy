@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { getGifs } from '../../store/action-creators/action-creators';
+import { getGifs } from '../../store/action-creators/action-creators/action-creators';
 import Category from '../Category/Category';
 import { Grid } from '../Grids/Grid';
 import Header from '../Header/Header';
@@ -12,13 +12,13 @@ import './Gifs.css'
 
 
 const Gifs: React.FC = () => {
-    const [ offset, setOffset ] = useState<number>(50)
+    const [ offset, setOffset ] = useState<number>(0)
     const [ items, setItems ] = useState<any>() 
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
     const { gifs } = useTypedSelector(state => state.gifsReducer)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
-    const limit = 50
+    const limit = 30
 
 
     
@@ -26,6 +26,8 @@ const Gifs: React.FC = () => {
         dispatch(getGifs(limit, offset))
         setItems(items ? [...items, ...gifs] : gifs)
     }
+
+    // console.log(gifs)
     
 
     const loadmore = () => {
@@ -52,7 +54,10 @@ const Gifs: React.FC = () => {
                  </div>
                  <div className='childBlock2'>
                     {
-                        isLoading ? <Grid gifs={items} /> : <Grid gifs={gifs}/> 
+                        isLoading ? 
+                                  <Grid gifs={items} /> 
+                                  : 
+                                  <Grid gifs={gifs}/> 
                     }
                  </div>
              </div>

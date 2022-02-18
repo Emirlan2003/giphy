@@ -1,0 +1,10 @@
+.favMainBlock{
+    display: flex;
+}
+.favBlock{
+    margin: 20px;
+}
+.favBlock img{
+    width: 200px;
+    height: 250px;
+}

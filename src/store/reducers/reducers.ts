@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IGifs, IInit, ISearch, ICategory } from "../../types"
-import { getCategory } from "../action-creators/action-creators"
+import { IGifs, IInit, ISearch, ICategory, IFavorites } from "../../types"
 
 
 
@@ -9,6 +8,8 @@ export const initialState: IInit = {
      details: [],
      search: [],
      category: [],
+     favorites: [],
+     favlength: [],
      random: {},
      error: ''
 }
@@ -35,6 +36,15 @@ export const gifsSlice = createSlice({
         },
         getCategoryError(state, action: PayloadAction<string>){
             state.error = action.payload
+        },
+        getFavoritesSuccess(state, action: PayloadAction<IFavorites[]>){
+            state.favorites = action.payload
+        },
+        getFavoritesError(state, action: PayloadAction<string>){
+            state.error = action.payload
+        },
+        getFavoriteLength(state, action: PayloadAction<any>){
+            state.favlength = action.payload
         }
     }
 })

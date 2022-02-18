@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { getCategory } from '../../store/action-creators/action-creators';
+import { getCategory } from '../../store/action-creators/action-creators/action-creators';
 import CategoryForm from '../CategoryForm/CategoryForm';
 
 
@@ -37,7 +37,11 @@ const Category = ({ onSubmit }: any) => {
                 category ?
                     
                     category.map((item) => (
-                         <CategoryForm item={item} clickHandler={clickHandler} key={item.gif.id}/>
+                         <CategoryForm 
+                                     item={item} 
+                                     clickHandler={clickHandler} 
+                                     key={item.gif.id}
+                         />
                     ))
     
                 :

@@ -1,7 +1,7 @@
 import axios from "axios"
-import { KEY_API, REACT_APP_API } from "../../api/api"
-import { AppDispatch } from "../reducers"
-import { gifsSlice } from "../reducers/reducers"
+import { KEY_API, REACT_APP_API } from "../../../api/api"
+import { AppDispatch } from "../../reducers"
+import { gifsSlice } from "../../reducers/reducers"
 
 
 
@@ -38,5 +38,15 @@ export const getCategory = () => async(dispatch: AppDispatch) => {
          dispatch(gifsSlice.actions.getCategorySuccess(response.data.data))
     }catch(e){
          dispatch(gifsSlice.actions.getCategoryError('Не удалось загрузить категории'))
+    }
+}
+
+
+export const getFavorites = () => async(dispatch: AppDispatch) => {
+    try{
+        const result = (JSON.parse(localStorage.getItem('cart') || '{}'))
+        dispatch(gifsSlice.actions.getFavoritesSuccess(result))        
+    }catch(e){
+            dispatch(gifsSlice.actions.getFavoritesError('Не удалось загрузить избранные'))
     }
 }

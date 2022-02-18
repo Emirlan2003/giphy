@@ -36,6 +36,14 @@ export interface ISearch {
 }
 
 
+export interface IFavorites {
+    id: string | number,
+    url: string | number,
+    previewUrl: any,
+    title: string
+}
+
+
 export interface ICategory {
     id: string | number,
     name: string,
@@ -48,6 +56,8 @@ export interface IInit {
     details: IDetails[],
     search: ISearch[],
     category: ICategory[],
+    favorites: IFavorites[],
+    favlength: any,
     random: any,
     error: string |  null
 }

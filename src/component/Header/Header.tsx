@@ -20,9 +20,21 @@ const Header = () => {
         navigate(`/search?q=${searchQuery}`)
     }
 
+    const navFavorite = () => {
+      navigate('/favorite')
+    }
+
     return (
         <div className='header'>
             <GiphyIcons />
+                {
+                  email ?
+                          <div onClick={navFavorite} className='favorite'>
+                              FAVORITES
+                          </div>
+                        : 
+                   null
+                }
             <SearchForm onSubmit={search}/>
             <div className='btnLogin'>
                  {email ? (
@@ -40,7 +52,10 @@ const Header = () => {
      
                 {email ? null : (
                    <Link to="/auth">
-                     <Button className="btn_login" variant="contained" disableElevation>
+                     <Button 
+                           className="btn_login" 
+                           variant="contained" 
+                           disableElevation>
                        Login
                      </Button>
                    </Link>
